@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/jonasah/advent-of-code-2024/lib/common"
-	"github.com/jonasah/advent-of-code-2024/lib/sliceconv"
+	"github.com/jonasah/advent-of-code-2024/lib/slicelib"
 )
 
 func Part1(input string) int {
@@ -13,7 +13,7 @@ func Part1(input string) int {
 
 	safe := 0
 	for _, r := range reports {
-		levels := sliceconv.Atoi(strings.Fields(r))
+		levels := slicelib.Atoi(strings.Fields(r))
 
 		if isSafe(levels) {
 			safe++
@@ -28,7 +28,7 @@ func Part2(input string) int {
 
 	safe := 0
 	for _, r := range reports {
-		levels := sliceconv.Atoi(strings.Fields(r))
+		levels := slicelib.Atoi(strings.Fields(r))
 
 		if isSafe(levels) {
 			safe++

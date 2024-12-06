@@ -6,7 +6,6 @@ import (
 	"strings"
 
 	"github.com/jonasah/advent-of-code-2024/lib/common"
-	"github.com/jonasah/advent-of-code-2024/lib/sliceconv"
 	"github.com/jonasah/advent-of-code-2024/lib/slicelib"
 )
 
@@ -61,7 +60,7 @@ func parseRules(rulesInput string) map[int][]int {
 
 func parseUpdates(updatesInput string) [][]int {
 	lines := common.GetLines(updatesInput)
-	return slicelib.Map(lines, func(l string) []int { return sliceconv.Atoi(strings.Split(l, ",")) })
+	return slicelib.Map(lines, func(l string) []int { return slicelib.Atoi(strings.Split(l, ",")) })
 }
 
 func compareFn(rules map[int][]int) func(a, b int) int {
