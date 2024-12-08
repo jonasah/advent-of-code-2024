@@ -1,0 +1,33 @@
+package day8
+
+import (
+	"testing"
+
+	"github.com/jonasah/advent-of-code-2024/lib/common"
+	"github.com/stretchr/testify/require"
+)
+
+func TestPart1(t *testing.T) {
+	require.Equal(t, 14, Part1(testInput))
+	require.Equal(t, 256, Part1(realInput))
+}
+
+func TestPart2(t *testing.T) {
+	require.Equal(t, 34, Part2(testInput))
+	require.Equal(t, 1005, Part2(realInput))
+}
+
+var realInput = common.GetInput(8)
+
+const testInput = `............
+........0...
+.....0......
+.......0....
+....0.......
+......A.....
+............
+............
+........A...
+.........A..
+............
+............`
