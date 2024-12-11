@@ -11,3 +11,11 @@ func Abs[T constraints.Integer](x T) T {
 
 	return x
 }
+
+func Sum[T constraints.Integer](a []T) T {
+	var sum T
+	for _, v := range a {
+		sum += v
+	}
+	return sum
+}
