@@ -8,6 +8,11 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func Test_FilterFunc(t *testing.T) {
+	out := slicelib.FilterFunc([]int{2, 4, 5, 7, 3, 4}, func(i int) bool { return i >= 4 })
+	assert.Equal(t, []int{4, 5, 7, 4}, out)
+}
+
 func Test_IndexAll(t *testing.T) {
 	out := slicelib.IndexAll([]int{3, 6, 2, 8, 3, 3}, 3)
 	assert.Equal(t, []int{0, 4, 5}, out)
