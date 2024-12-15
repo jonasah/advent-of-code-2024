@@ -9,8 +9,16 @@ const (
 	Up    Direction = -1i
 )
 
-func newDirection(dx, dy int) Direction {
+func NewDirection(dx, dy int) Direction {
 	return Direction(complex(float64(dx), float64(dy)))
+}
+
+func (d Direction) X() int {
+	return int(real(d))
+}
+
+func (d Direction) Y() int {
+	return int(imag(d))
 }
 
 func (d Direction) TurnRight() Direction {
@@ -40,5 +48,5 @@ func (p Position) IsWithin(p0, p1 Position) bool {
 }
 
 func (p Position) Diff(p1 Position) Direction {
-	return newDirection(p.X()-p1.X(), p.Y()-p1.Y())
+	return NewDirection(p.X()-p1.X(), p.Y()-p1.Y())
 }
