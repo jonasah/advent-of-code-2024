@@ -19,3 +19,7 @@ func Sum[T constraints.Integer](a []T) T {
 	}
 	return sum
 }
+
+func ManhattanDistance(p0, p1 Position) int {
+	return Abs(p0.X()-p1.X()) + Abs(p0.Y()-p1.Y())
+}

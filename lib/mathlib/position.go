@@ -25,6 +25,10 @@ func (d Direction) TurnRight() Direction {
 	return d * 1i
 }
 
+func (d Direction) TurnLeft() Direction {
+	return d * -1i
+}
+
 type Position complex128
 
 func NewPosition(x, y int) Position {
