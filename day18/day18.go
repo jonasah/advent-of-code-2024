@@ -18,27 +18,15 @@ func Part1(input string, maxCoord, numBytes int) int {
 func Part2(input string, maxCoord int) string {
 	positions := parseInput(input)
 
-	left := 0
-	half := len(positions) / 2
-
-	for range 5000 {
-		pivot := left + half
-		d1 := solve(positions[:pivot], maxCoord)
-		d2 := solve(positions[:pivot+1], maxCoord)
-
-		if d1 != math.MaxInt && d2 == math.MaxInt {
-			break
-		}
-
-		if d1 != math.MaxInt && d2 != math.MaxInt {
-			left += half + 1
-		}
-
-		half = half / 2
+	b := make([]int, 0, len(positions))
+	for i := range positions {
+		b = append(b, i+1)
 	}
 
-	p := positions[left+half]
-	return fmt.Sprintf("%d,%d", p.X(), p.Y())
+	i, _ := slices.BinarySearchFunc(b, 0, func(numBytes, _ int) int {
+		return solve(positions[:numBytes], maxCoord) - math.MaxInt
+	})
+	return fmt.Sprintf("%d,%d", positions[i].X(), positions[i].Y())
 }
 
 func parseInput(input string) []mathlib.Position {
