@@ -1,6 +1,8 @@
 package mathlib
 
 import (
+	"cmp"
+
 	"golang.org/x/exp/constraints"
 )
 
@@ -10,6 +12,14 @@ func Abs[T constraints.Integer](x T) T {
 	}
 
 	return x
+}
+
+func Min[T cmp.Ordered](x, y T) T {
+	if x < y {
+		return x
+	}
+
+	return y
 }
 
 func Sum[T constraints.Integer](a []T) T {
