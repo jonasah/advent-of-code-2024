@@ -18,6 +18,11 @@ func Test_IndexAll(t *testing.T) {
 	assert.Equal(t, []int{0, 4, 5}, out)
 }
 
+func Test_IndexAllFunc(t *testing.T) {
+	out := slicelib.IndexAllFunc([]int{3, 6, 2, 8, 3, 3}, func(i int) bool { return i < 4 })
+	assert.Equal(t, []int{0, 2, 4, 5}, out)
+}
+
 func Test_Map(t *testing.T) {
 	out := slicelib.Map([]int{2, 4, 5}, func(i int) string { return strconv.Itoa(i) })
 	assert.Equal(t, []string{"2", "4", "5"}, out)
