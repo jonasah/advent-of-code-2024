@@ -57,3 +57,7 @@ func Atoi(a []string) []int {
 
 	return l
 }
+
+func Itoa(a []int) []string {
+	return Map(a, strconv.Itoa)
+}
