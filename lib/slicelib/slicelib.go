@@ -1,6 +1,7 @@
 package slicelib
 
 import (
+	"slices"
 	"strconv"
 )
 
@@ -12,6 +13,16 @@ func FilterFunc[T any](a []T, f func(T) bool) []T {
 		}
 	}
 	return out
+}
+
+func FindFunc[T any](a []T, f func(T) bool) (T, bool) {
+	i := slices.IndexFunc(a, f)
+	if i == -1 {
+		var empty T
+		return empty, false
+	}
+
+	return a[i], true
 }
 
 func IndexAll[T comparable](a []T, val T) []int {

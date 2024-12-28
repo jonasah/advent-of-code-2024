@@ -13,6 +13,17 @@ func Test_FilterFunc(t *testing.T) {
 	assert.Equal(t, []int{4, 5, 7, 4}, out)
 }
 
+func Test_FindFunc(t *testing.T) {
+	input := []int{5, 7, 3}
+
+	v, ok := slicelib.FindFunc(input, func(i int) bool { return i > 5 })
+	assert.True(t, ok)
+	assert.Equal(t, 7, v)
+
+	_, ok = slicelib.FindFunc(input, func(i int) bool { return i == 10 })
+	assert.False(t, ok)
+}
+
 func Test_IndexAll(t *testing.T) {
 	out := slicelib.IndexAll([]int{3, 6, 2, 8, 3, 3}, 3)
 	assert.Equal(t, []int{0, 4, 5}, out)
