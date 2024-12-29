@@ -47,3 +47,4 @@ go.work
 
 .idea
 input.txt
+*.gv
